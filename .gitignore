@@ -9,10 +9,10 @@
 
 
 # ------------------------------------------------------------------
-# git config --global core.autocrlf false  //禁用自动转换  
+# git config --global core.autocrlf false  //禁用自动转换   , git config --global core.autocrlf input 
 # git branch -a
 # git remote -v
 # git checkout branchA
 # git push origin master
-# git push origin xxx
+# git push origin xxx --tags –tags
 #--------------------------------------------------------------------

@@ -1,13 +1,21 @@
 
 Beego使用方法:   2018-01-01
 
-
+----------------------------------------------
+Beego环境搭建和bee工具安装使用
+1.
 创建D:\rd\beego目录，并建3个空的子目录 bin,pkg,src
 在环境变量中设置系统变量 GOROOT=E:\IDEA\go1.9.2.windows-amd64\go   #go的压缩包解压后
 在环境变量中设置系统变量 GOPATH=D:\rd\beego
 在环境变量中设置系统变量 PATH=E:\IDEA\TDM_GCC_64\bin;C:\Program Files\Git\cmd;D:\rd\mysql-5.7.19;%GOROOT%\bin;%GOPATH%\bin;%GOPATH%;
 在PATH中加上 %GOROOT%\bin;%GOPATH%\bin;%GOPATH%;
 
+2. 下载并安装好git bash工具。
+3. 打开gitcmd，输入 go get github.com/astaxie/beego  。稍等片刻即可在GOPATH的src目录下看到有\github.com\astaxie\beego目录。
+4. 在gitcmd中输入 go get github.com/beego/bee  
+5. 测试bee是否安装成功，可在命令行中输入bee，得到如下结果就成功了。
+
+-------------------
 beego admin请看admin目录下的Readme.md文件操作
 
 如果是go项目:
