@@ -9,4 +9,6 @@ import (
 func init() {
     admin.Run()
     beego.Router("/", &controllers.MainController{})
+	//beego.Router("/a", &controllers.MainController{})
+	//beego.Router("/a/admin",&rbac.RoleController{}, "*:Index")
 }

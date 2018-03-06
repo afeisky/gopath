@@ -173,7 +173,7 @@ var URL="/public"
 }
 </style>
 <body class="easyui-layout" style="text-align:left">
-<div region="north" border="false" style="overflow: hidden; width: 100%; height:82px; background:#D9E5FD;">
+<div region="north" border="false" style="overflow: hidden; width: 100%; height:52px; background:#D9E5FD;">
     <div style="overflow: hidden; width:200px; padding:2px 0 0 5px;">
         <h2>BeegoAdmin</h2>
     </div>
@@ -182,7 +182,7 @@ var URL="/public"
             <li><span><a class="current"  href="#" onClick="selectgroup({{.Id}});$('.ht_nav li a').removeClass('current');$(this).addClass('current')">{{.Title}}</a></span></li>
         {{end}}
     </ul>
-    <div id="header-inner" style="float:right; overflow:hidden; height:80px; width:300px; line-height:25px; text-align:right; padding-right:20px;margin-top:-50px; ">
+    <div id="header-inner" style="float:right; overflow:hidden; height:50px; width:300px; line-height:25px; text-align:right; padding-right:20px;margin-top:-50px; ">
         欢迎你！ {{.userinfo.Nickname}} <a href="javascript:void(0);" onclick="modifypassword()"> 修改密码</a>
         <a href="/public/logout" target="_parent"> 退 出</a>
     </div>
