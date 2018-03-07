@@ -23,7 +23,7 @@ $(function(){
         columns:[[
             {field:'Id',title:'ID',width:50,sortable:true},
             {field:'Username',title:'用户名',width:100,sortable:true},
-            {field:'Nickname',title:'昵称',width:100,align:'center',editor:'text'},
+            {field:'Nickname',title:'全称',width:100,align:'center',editor:'text'},
             {field:'Email',title:'Email',width:100,align:'center',editor:'text'},
             {field:'Remark',title:'备注',width:150,align:'center',editor:'text'},
             {field:'Lastlogintime',title:'上次登录时间',width:100,align:'center',
@@ -54,7 +54,14 @@ $(function(){
                         required:true
                     }
                 }
-            }
+            },
+	    {field:'CompanyId',title:'CompanyId',width:50,sortable:true},
+            {field:'action',title:'操作',width:100,align:'center',
+                formatter:function(value,row,index){
+                    var d = '<a href="'+URL+'/UserSelectCompanyList?Id='+row.Id+'" target="_blank">修改公司名称</a> ';
+                    return d;
+                }
+            }            
         ]],
         onAfterEdit:function(index, data, changes){
             if(vac.isEmpty(changes)){

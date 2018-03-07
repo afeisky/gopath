@@ -31,8 +31,6 @@ type JsonController struct {
 func (this *JsonController) Get() {
 	this.Data["data"] = `{"success": 0, "msg": "111","data":"afsdfsf"}`
 	this.TplName =  "a.tpl"
-
-
 }
 
 func outError() string {
@@ -47,7 +45,7 @@ func outError() string {
 	return string(js)
 }
 
-func (this *JsonController) Post() {
+func (this *JsonController) Post1() {
 	var infoServer *InfoServer = &InfoServer{
 		Success: 1,
 		Time: "",
@@ -175,7 +173,7 @@ func nowTime111() string {
 	os.Stdout.Write(b)
 	return time.Now().Format("2006-01-02 15:04:05")
 }
-func getNow() string { //��ȡ��ǰʱ��
+func getNow() string { //
 	//    now := time.Now()
 	//    year, mon, day := now.UTC().Date()
 	//    hour, min, sec := now.UTC().Clock()
@@ -195,8 +193,8 @@ func getNow() string { //��ȡ��ǰʱ��
 type InfoRequest struct {
 	App string
 	Time string
-	K1 string  //��ȫK1 ΪTime��Dataǰ10λ�ϳɵĴ����ɵ�MD5�� , ��AES��
-	K2 string  //��ȫK2 ΪTime��Data���кϳɵĴ����ɵ�MD5��
+	K1 string  //安全K1: Time加Data共10个字节的MD5码 , 或AES编码
+	K2 string  //安全K2: Time加Data共10个字节的MD5码 , 或AES编码
 	From string
 	Data interface{}
 }
@@ -211,15 +209,36 @@ type InfoServer struct {
 	Time string `json:"time"`
 	Msg string `json:"msg"`
 	Data interface{} `json:"data"`
-	K1 string  `json:"data"`    //��ȫK1 ΪTime��Dataǰ10λ�ϳɵĴ����ɵ�MD5�� , ��AES��
-	K2 string  `json:"data"`    //��ȫK2 ΪTime��Data���кϳɵĴ����ɵ�MD5��
+	K1 string  `json:"data"`    //安全K1: Time加Data共10个字节的MD5码 , 或AES编码
+	K2 string  `json:"data"`    //安全K2: Time加Data共10个字节的MD5码 , 或AES编码
+}
+
+func (c *JsonController) Post() {
+	//var v models.User
+	//json.Unmarshal(c.Ctx.Input.RequestBody, &v)
+	//fmt.Println(v)
+	c.Ctx.Output.SetStatus(201)
+	//c.Data["json"] = v
+	c.ServeJSON()
 }
 
 func init() {
-	fmt.Println("Hello Beego")
+
+	fmt.Println("router.go--> start")
     beego.Router("/", &controllers.MainController{})
 	beego.Router("/hello", &HelloController{})
-	beego.Router("/a", &JsonController{})
+	//beego.Router("/a", &JsonController{})
+	beego.Router("/a", &JsonController{},"post:Post")
+	beego.Router("/a", &JsonController{},"get:Get")
+	//----
+	//beego.Router("/api/list",&HelloController{},"*:ListFood")
+	//beego.Router("/api/create",&HelloController{},"post:CreateFood")
+	//beego.Router("/api/update",&HelloController{},"put:UpdateFood")
+	//beego.Router("/api/delete",&HelloController{},"delete:DeleteFood")
+	//-----
+	//beego.Get("/api/a", beego.FilterFunc)
+	//beego.Post("/api/b", beego.FilterFunc)
+	fmt.Println("router.go--> end")
 }
 
 //--byte ת string
