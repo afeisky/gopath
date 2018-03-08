@@ -15,5 +15,5 @@
 # git remote -v
 # git checkout branchA
 # git push origin master
-# git push origin xxx --tags ¨Ctags
+# git push origin xxx --tags
 #--------------------------------------------------------------------

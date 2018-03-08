@@ -25,3 +25,8 @@ beego admin请看admin目录下的Readme.md文件操作
 在 GOPATH/src/demo_beego目录下， bee new project1; bee run project1 就跑一个项目了。
 
 注意，在windows跑这些命令时，使用cmd.exe或使用git的Git CMD.ext也是OK的。
+
+----------------------------------
+有两个例子:
+   \src\demo_beego\admin_copy  #这是从仿src/github.com/beego/admin的例子(copy from github.com/beego/admin)
+   \src\demo_beego\hello_admin  #这是从github.com/beego/admin的例子
