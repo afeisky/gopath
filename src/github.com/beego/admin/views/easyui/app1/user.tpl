@@ -157,9 +157,72 @@ $(function(){
             }
         }]
     });
-
+//创建修改公司窗口
+     $("#dialog3").dialog({
+            modal:true,
+            resizable:true,
+            top:150,
+            closed:true,
+            buttons:[{
+                text:'保存',
+                iconCls:'icon-save',
+                handler:function(){
+                    var selectedRow = $("#datagrid").datagrid('getSelected');
+                    var password = $('#password').val();
+                    vac.ajax(URL+'/UpdateUser', {Id:selectedRow.Id,Password:password}, 'post', function(r){
+                        if(r.status){
+                            $("#dialog3").dialog("close");
+                        }else{
+                            vac.alert(r.info);
+                        }
+                    })
+                }
+            },{
+                text:'取消',
+                iconCls:'icon-cancel',
+                handler:function(){
+                    $("#dialog3").dialog("close");
+                }
+            }]
+        });
+        $("#datagrid3").datagrid({
+                url:URL+'/UserSelectCompanyList?Id='+$("#datagrid").datagrid('getSelected').Id,
+                method:'get',
+                fitColumns:false,
+                striped:true,
+                rownumbers:true,
+                singleSelect: true,
+                idField:'Id',
+                columns:[[
+                    {field:'Id',title:'ID',width:50,align:'center'},
+                    {field:'Name',title:'公司名字',width:140,align:'center'},
+                    {field:'Longname',title:'全称',width:140,align:'center'}
+                ]],
+                onLoadSuccess:function(data){
+                    $("#datagrid3").datagrid('unselectAll');
+                    //默认选中已存在的对应关系
+                    for(var i=0;i<data.rows.length;i++){
+                        if(data.rows[i].checked == 1){
+                            $(this).datagrid('selectRecord',data.rows[i].Id);
+                        }
+                    }
+                }
+            });
 })
-
+//保存选择
+function saveselect(){
+    var rows = $("#datagrid2").datagrid('getSelections');
+    if(rows == null){
+        vac.alert("最少要选中一行");
+    }
+    var ids = [];
+    for(var i=0; i<rows.length; i++){
+        ids.push(rows[i].Id);
+    }
+    vac.ajax(URL+'/UserUpdateCompany', {Id:userid,ids:ids.join(',')}, 'POST', function(r){
+        $.messager.alert('提示',r.info,'info');
+    })
+}
 function editrow(){
     if(!$("#datagrid").datagrid("getSelected")){
         vac.alert("请选择要编辑的行");
@@ -204,6 +267,19 @@ function updateuserpassword(){
     $("#dialog2").dialog('open');
     $("form2").form('load',{password:''});
 }
+//编辑公司名称
+function updatecompanyname(){
+    var dg = $("#datagrid")
+    var selectedRow = dg.datagrid('getSelected');
+    if(selectedRow == null){
+        vac.alert("请选择用户");
+        return;
+    }
+    //$.messager.alert('提示','userid='+selectedRow.Id,'info');
+    $("#dialog3").dialog('open');
+    //$("#datagrid3").datagrid("reload");  //?? need test again....
+    //$("#dialog3").panel({href:URL+'?userid='+selectedRow.Id}); //???
+}
 
 //删除
 function delrow(){
@@ -234,6 +310,7 @@ function delrow(){
     <a href="#" icon='icon-cancel' plain="true" onclick="delrow()" class="easyui-linkbutton" >删除</a>
     <a href="#" icon='icon-reload' plain="true" onclick="reloadrow()" class="easyui-linkbutton" >刷新</a>
     <a href="#" icon='icon-edit' plain="true" onclick="updateuserpassword()" class="easyui-linkbutton" >修改用户密码</a>
+    <a href="#" icon='icon-edit' plain="true" onclick="updatecompanyname()" class="easyui-linkbutton" >修改公司名称</a>
 </div>
 <!--表格内的右键菜单-->
 <div id="mm" class="easyui-menu" style="width:120px;display: none" >
@@ -242,6 +319,7 @@ function delrow(){
     <div iconCls='icon-save' onclick="saverow()">保存</div>
     <div iconCls='icon-cancel' onclick="cancelrow()">取消</div>
     <div iconCls='icon-edit' onclick="updateuserpassword()">修改密码</div>
+    <div iconCls='icon-edit' onclick="updatecompanyname()">修改公司名称</div>
     <div class="menu-sep"></div>
     <div iconCls='icon-cancel' onclick="delrow()">删除</div>
     <div iconCls='icon-reload' onclick="reloadrow()">刷新</div>
@@ -302,6 +380,9 @@ function delrow(){
             </tr>
         </table>
     </div>
+</div>
+<div id="dialog3" title="修改公司名称" style="width:500px;height:400px;">
+     <table id="datagrid3" toolbar="#tb"></table>
 </div>
 
 </body>

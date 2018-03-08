@@ -2,8 +2,13 @@
 # 2018-01-01  beego($GOPATH)/
 
 
-bin
+/bin/
+/pkg/
 
+/src/*.exe
+/src/github.com
+!/src/github.com/beego/admin
+.git
 
 # ------------------------------------------------------------------
 # git config --global core.autocrlf false  //禁用自动转换   , git config --global core.autocrlf input 

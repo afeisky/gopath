@@ -36,17 +36,19 @@ func router() {
 	beego.Router("/rbac/role/index", &rbac.RoleController{}, "*:Index")
 
 	//BEGIN-wuchaofei add
-	beego.Router("/app1/company/AddCompany", &rbac.ProductCompanyController{}, "*:AddCompany")
-	beego.Router("/app1/company/UpdateCompany", &rbac.ProductCompanyController{}, "*:UpdateCompany")
-	beego.Router("/app1/company/DelCompany", &rbac.ProductCompanyController{}, "*:DelCompany")
-	beego.Router("/app1/company/index", &rbac.ProductCompanyController{}, "*:Index")
+	beego.Router("/app1/company/AddCompany", &rbac.App1CompanyController{}, "*:AddCompany")
+	beego.Router("/app1/company/UpdateCompany", &rbac.App1CompanyController{}, "*:UpdateCompany")
+	beego.Router("/app1/company/DelCompany", &rbac.App1CompanyController{}, "*:DelCompany")
+	beego.Router("/app1/company/index", &rbac.App1CompanyController{}, "*:Index")
 
-	beego.Router("/app1/user/AddUser", &rbac.ProductUserController{}, "*:AddUser")
-	beego.Router("/app1/user/UpdateUser", &rbac.ProductUserController{}, "*:UpdateUser")
-	beego.Router("/app1/user/DelUser", &rbac.ProductUserController{}, "*:DelUser")
-	beego.Router("/app1/user/index", &rbac.ProductUserController{}, "*:Index")
-	beego.Router("/app1/user/UserSelectCompanyList", &rbac.ProductUserController{}, "*:UserSelectCompanyList")
-	beego.Router("/app1/user/UserUpdateCompany", &rbac.ProductUserController{}, "*:UserUpdateCompany")
-	beego.Router("/app1/data", &rbac.App1DataController{},"*:Get")
+	beego.Router("/app1/user/AddUser", &rbac.App1UserController{}, "*:AddUser")
+	beego.Router("/app1/user/UpdateUser", &rbac.App1UserController{}, "*:UpdateUser")
+	beego.Router("/app1/user/DelUser", &rbac.App1UserController{}, "*:DelUser")
+	beego.Router("/app1/user/index", &rbac.App1UserController{}, "*:Index")
+	beego.Router("/app1/user/UserSelectCompanyList", &rbac.App1UserController{}, "*:UserSelectCompanyList")
+	beego.Router("/app1/user/UserUpdateCompany", &rbac.App1UserController{}, "*:UserUpdateCompany")
+	beego.Router("/app1/data", &rbac.App1DataController{},"get:Get")
+	beego.Router("/app1/data", &rbac.App1DataController{},"post:Post")
+
 	//END---wuchaofei add
 }

@@ -10,6 +10,7 @@ $(function(){
         fitColumns:false,
         striped:true,
         rownumbers:true,
+        singleSelect: true,
         idField:'Id',
         columns:[[
             {field:'Id',title:'ID',width:50,align:'center'},
@@ -37,7 +38,7 @@ $(function(){
         for(var i=0; i<rows.length; i++){
             ids.push(rows[i].Id);
         }
-        vac.ajax(URL+'/AddRoleToUser', {Id:userid,ids:ids.join(',')}, 'POST', function(r){
+        vac.ajax(URL+'/UserUpdateCompany', {Id:userid,ids:ids.join(',')}, 'POST', function(r){
             $.messager.alert('提示',r.info,'info');
         })
     }
@@ -46,7 +47,6 @@ $(function(){
 <table id="datagrid2" toolbar="#tb2"></table>
 <div id="tb2" style="padding:5px;height:auto">
     <div style="margin-bottom:5px">
-        当前组：<input id="combobox" name="name" >
         <a href="#"  class="easyui-linkbutton" iconCls="icon-save" plain="true" onclick="saveselect()">保存</a>
     </div>
 </div>

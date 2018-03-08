@@ -167,14 +167,14 @@ func insertRole() {
 }
 func insertCompany() {
 	fmt.Println("insert company ...")
-	g := new(ProductCompany)
+	g := new(App1Company)
 	g.Name = "company1"
 	g.Longname = "app long name"
 	g.Email = "afeisky@163.com"
 	g.Remark = "who1?"
 	g.Status = 2
 	o.Insert(g)
-	g = new(ProductCompany)
+	g = new(App1Company)
 	g.Name = "company2"
 	g.Longname = "company2 long name"
 	g.Email = "afeisky@163.com"
@@ -185,7 +185,7 @@ func insertCompany() {
 }
 func insertProductUser() {
 	fmt.Println("insert ProductUser ...")
-	u := new(ProductUser)
+	u := new(App1User)
 	u.Username = "afei"
 	u.Nickname = "afei"
 	u.Password = Pwdhash("afei")

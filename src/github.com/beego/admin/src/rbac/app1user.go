@@ -9,12 +9,12 @@ import (
 	"strconv"
 )
 
-type ProductUserController struct {
+type App1UserController struct {
 	CommonController
 }
 
-func (this *ProductUserController) Index() {
-	fmt.Println("ProductUserController....Index()")
+func (this *App1UserController) Index() {
+	fmt.Println("App1UserController....Index()")
 	page, _ := this.GetInt64("page")
 		page_size, _ := this.GetInt64("rows")
 		sort := this.GetString("sort")
@@ -28,12 +28,12 @@ func (this *ProductUserController) Index() {
 	}
 	users, count := m.GetProductUserlist(page, page_size, sort)
 	if this.IsAjax() {
-		fmt.Println("ProductUserController....1,",users)
+		fmt.Println("App1UserController....1,",users)
 		this.Data["json"] = &map[string]interface{}{"total": count, "rows": &users}
 		this.ServeJSON()
 		return
 	} else {
-		fmt.Println("ProductUserController....2,",users)
+		fmt.Println("App1UserController....2,",users)
 		tree := this.GetTree()
 		this.Data["tree"] = &tree
 		this.Data["users"] = &users
@@ -45,9 +45,9 @@ func (this *ProductUserController) Index() {
 
 }
 
-func (this *ProductUserController) AddUser() {
-	fmt.Println("ProductUserController....AddUser()")
-	u := m.ProductUser{}
+func (this *App1UserController) AddUser() {
+	fmt.Println("App1UserController....AddUser()")
+	u := m.App1User{}
 	if err := this.ParseForm(&u); err != nil {
 		//handle error
 		this.Rsp(false, err.Error())
@@ -64,9 +64,9 @@ func (this *ProductUserController) AddUser() {
 
 }
 
-func (this *ProductUserController) UpdateUser() {
-	fmt.Println("ProductUserController....UpdateUser()")
-	u := m.ProductUser{}
+func (this *App1UserController) UpdateUser() {
+	fmt.Println("App1UserController....UpdateUser()")
+	u := m.App1User{}
 	if err := this.ParseForm(&u); err != nil {
 		//handle error
 		this.Rsp(false, err.Error())
@@ -83,8 +83,8 @@ func (this *ProductUserController) UpdateUser() {
 
 }
 
-func (this *ProductUserController) DelUser() {
-	fmt.Println("ProductUserController....DelUser()")
+func (this *App1UserController) DelUser() {
+	fmt.Println("App1UserController....DelUser()")
 	Id, _ := this.GetInt64("Id")
 	status, err := m.DelProductUserById(Id)
 	if err == nil && status > 0 {
@@ -96,8 +96,8 @@ func (this *ProductUserController) DelUser() {
 	}
 }
 
-func (this *ProductUserController) UserSelectCompanyList() {
-	fmt.Println("ProductUserController UserSelectCompanyList()")
+func (this *App1UserController) UserSelectCompanyList() {
+	fmt.Println("App1UserController UserSelectCompanyList()")
 	userid, _ := this.GetInt64("Id")
 	if this.IsAjax() {
 		companys, count := m.GetCompanylist(1, 1000, "Id")
@@ -119,8 +119,8 @@ func (this *ProductUserController) UserSelectCompanyList() {
 	}
 }
 
-func (this *ProductUserController) UserUpdateCompany() {
-	fmt.Println("ProductUserController --UserUpdateCompany()")
+func (this *App1UserController) UserUpdateCompany() {
+	fmt.Println("App1UserController --UserUpdateCompany()")
 	userid, _ := this.GetInt64("Id")
 	companyids := this.GetString("ids")
 	userids := strings.Split(companyids, ",")

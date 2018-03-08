@@ -12,7 +12,7 @@ import (
 )
 
 //分组表
-type ProductCompany struct {
+type App1Company struct {
 	Id     int64
 	Name   string  `orm:"size(20)" form:"Name"  valid:"Required"`
 	Longname   string  `orm:"size(50)" form:"Longname"  valid:"Required"`
@@ -23,16 +23,16 @@ type ProductCompany struct {
 	Status int     `orm:"default(2)" form:"Status" valid:"Range(1,2)"`
 }
 
-func (g *ProductCompany) TableName() string {
-	fmt.Println("ProductCompany....TableName")
+func (g *App1Company) TableName() string {
+	fmt.Println("App1Company....TableName")
 	return beego.AppConfig.String("app1_company_table")
 }
 
 func init() {
-	orm.RegisterModel(new(ProductCompany))
+	orm.RegisterModel(new(App1Company))
 }
 
-func checkCompany(g *ProductCompany) (err error) {
+func checkCompany(g *App1Company) (err error) {
 	valid := validation.Validation{}
 	b, _ := valid.Valid(&g)
 	if !b {
@@ -47,7 +47,7 @@ func checkCompany(g *ProductCompany) (err error) {
 //get company list
 func GetCompanylist(page int64, page_size int64, sort string) (companys []orm.Params, count int64) {
 	o := orm.NewOrm()
-	company := new(ProductCompany)
+	company := new(App1Company)
 	qs := o.QueryTable(company)
 	var offset int64
 	if page <= 1 {
@@ -60,12 +60,12 @@ func GetCompanylist(page int64, page_size int64, sort string) (companys []orm.Pa
 	return companys, count
 }
 
-func AddCompany(g *ProductCompany) (int64, error) {
+func AddCompany(g *App1Company) (int64, error) {
 	if err := checkCompany(g); err != nil {
 		return 0, err
 	}
 	o := orm.NewOrm()
-	company := new(ProductCompany)
+	company := new(App1Company)
 	company.Name = g.Name
 	company.Email = g.Email
 	company.Remark = g.Remark
@@ -74,7 +74,7 @@ func AddCompany(g *ProductCompany) (int64, error) {
 	return id, err
 }
 
-func UpdateCompany(g *ProductCompany) (int64, error) {
+func UpdateCompany(g *App1Company) (int64, error) {
 	if err := checkCompany(g); err != nil {
 		return 0, err
 	}
@@ -101,20 +101,20 @@ func UpdateCompany(g *ProductCompany) (int64, error) {
 	if len(company) == 0 {
 		return 0, errors.New("update field is empty")
 	}
-	var table ProductCompany
+	var table App1Company
 	num, err := o.QueryTable(table).Filter("Id", g.Id).Update(company)
 	return num, err
 }
 
 func DelCompanyById(Id int64) (int64, error) {
 	o := orm.NewOrm()
-	status, err := o.Delete(&ProductCompany{Id: Id})
+	status, err := o.Delete(&App1Company{Id: Id})
 	return status, err
 }
 
 func CompanyList() (companys []orm.Params) {
 	o := orm.NewOrm()
-	company := new(ProductCompany)
+	company := new(App1Company)
 	qs := o.QueryTable(company)
 	qs.Values(&companys, "id", "title")
 	return companys

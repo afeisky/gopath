@@ -7,11 +7,11 @@ import (
 
 
 
-type ProductCompanyController struct {
+type App1CompanyController struct {
 	CommonController
 }
 
-func (this *ProductCompanyController) Index() {
+func (this *App1CompanyController) Index() {
 	if this.IsAjax() {
 		page, _ := this.GetInt64("page")
 		page_size, _ := this.GetInt64("rows")
@@ -33,8 +33,8 @@ func (this *ProductCompanyController) Index() {
 	}
 
 }
-func (this *ProductCompanyController) AddCompany() {
-	g := m.ProductCompany{}
+func (this *App1CompanyController) AddCompany() {
+	g := m.App1Company{}
 	if err := this.ParseForm(&g); err != nil {
 		//handle error
 		this.Rsp(false, err.Error())
@@ -51,8 +51,8 @@ func (this *ProductCompanyController) AddCompany() {
 
 }
 
-func (this *ProductCompanyController) UpdateCompany() {
-	g := m.ProductCompany{}
+func (this *App1CompanyController) UpdateCompany() {
+	g := m.App1Company{}
 	if err := this.ParseForm(&g); err != nil {
 		//handle error
 		this.Rsp(false, err.Error())
@@ -69,7 +69,7 @@ func (this *ProductCompanyController) UpdateCompany() {
 
 }
 
-func (this *ProductCompanyController) DelCompany() {
+func (this *App1CompanyController) DelCompany() {
 	Id, _ := this.GetInt64("Id")
 	status, err := m.DelCompanyById(Id)
 	if err == nil && status > 0 {

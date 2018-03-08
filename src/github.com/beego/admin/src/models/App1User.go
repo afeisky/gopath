@@ -13,7 +13,7 @@ import (
 )
 
 //用户表
-type ProductUser struct {
+type App1User struct {
 	Id            int64
 	Username      string    `orm:"size(20)" form:"Code" valid:"Required;MaxSize(20);MinSize(6)"`
 	Password      string    `orm:"size(32)" form:"Password" valid:"Required;MaxSize(20);MinSize(6)"`
@@ -25,25 +25,25 @@ type ProductUser struct {
 	Lastlogintime time.Time `orm:"null;type(datetime)" form:"-"`
 	Createtime    time.Time `orm:"type(datetime);auto_now_add" `
 	Ckey      string    `orm:"size(16)" form:"Ckey" valid:"Required;MaxSize(20);MinSize(6)"`
-	//ProductCompany          []*ProductCompany   `orm:"rel(m2m)"`
+	//App1Company          []*App1Company   `orm:"rel(m2m)"`
 	CompanyId    int64   `form:"CompanyId"  valid:"Required"`
 }
 
-func (u *ProductUser) TableName() string {
-	fmt.Println("ProductUser....TableName")
-	return beego.AppConfig.String("app1_user_table")
+func (u *App1User) TableName() string {
+	fmt.Println("App1User....TableName")
+	return beego.AppConfig.String("app1_user_table")  //need add:app1_user_table=app1_user in conf/app.conf
 }
 
-func (u *ProductUser) Valid(v *validation.Validation) {
-	fmt.Println("ProductUser....Valid()")
+func (u *App1User) Valid(v *validation.Validation) {
+	fmt.Println("App1User....Valid()")
 	if u.Password != u.Repassword {
 		v.SetError("Repassword", "两次输入的密码不一样")
 	}
 }
 
 //验证用户信息
-func checkProductUser(u *ProductUser) (err error) {
-	fmt.Println("ProductUser....checkProductUser()")
+func checkProductUser(u *App1User) (err error) {
+	fmt.Println("App1User....checkProductUser()")
 	valid := validation.Validation{}
 	b, _ := valid.Valid(&u)
 	if !b {
@@ -56,16 +56,16 @@ func checkProductUser(u *ProductUser) (err error) {
 }
 
 func init() {
-	orm.RegisterModel(new(ProductUser))
+	orm.RegisterModel(new(App1User))
 }
 
 /************************************************************/
 
 //get user list
 func GetProductUserlist(page int64, page_size int64, sort string) (users []orm.Params, count int64) {
-	fmt.Println("ProductUser....GetProductUserlist()",page,",",page_size,",",sort,",count=",count)
+	fmt.Println("App1User....GetProductUserlist()",page,",",page_size,",",sort,",count=",count)
 	o := orm.NewOrm()
-	user := new(ProductUser)
+	user := new(App1User)
 	qs := o.QueryTable(user)
 	var offset int64
 	if page <= 1 {
@@ -79,13 +79,13 @@ func GetProductUserlist(page int64, page_size int64, sort string) (users []orm.P
 }
 
 //添加用户
-func AddProductUser(u *ProductUser) (int64, error) {
-	fmt.Println("ProductUser....AddProductUser()")
+func AddProductUser(u *App1User) (int64, error) {
+	fmt.Println("App1User....AddProductUser()")
 	if err := checkProductUser(u); err != nil {
 		return 0, err
 	}
 	o := orm.NewOrm()
-	user := new(ProductUser)
+	user := new(App1User)
 	user.Username = u.Username
 	user.Password = Strtomd5(u.Password)
 	user.Nickname = u.Nickname
@@ -98,8 +98,8 @@ func AddProductUser(u *ProductUser) (int64, error) {
 }
 
 //更新用户
-func UpdateProductUser(u *ProductUser) (int64, error) {
-	fmt.Println("ProductUser....UpdateProductUser()")
+func UpdateProductUser(u *App1User) (int64, error) {
+	fmt.Println("App1User....UpdateProductUser()")
 	if err := checkProductUser(u); err != nil {
 		return 0, err
 	}
@@ -129,29 +129,29 @@ func UpdateProductUser(u *ProductUser) (int64, error) {
 	if len(user) == 0 {
 		return 0, errors.New("update field is empty")
 	}
-	var table ProductUser
+	var table App1User
 	num, err := o.QueryTable(table).Filter("Id", u.Id).Update(user)
 	return num, err
 }
 
 func DelProductUserById(Id int64) (int64, error) {
-	fmt.Println("ProductUser....DelProductUserById()")
+	fmt.Println("App1User....DelProductUserById()")
 	o := orm.NewOrm()
-	status, err := o.Delete(&ProductUser{Id: Id})
+	status, err := o.Delete(&App1User{Id: Id})
 	return status, err
 }
 
-func GetProductUserByUsername(username string) (user ProductUser) {
-	fmt.Println("ProductUser....GetProductUserByUsername()")
-	user = ProductUser{Username: username}
+func GetProductUserByUsername(username string) (user App1User) {
+	fmt.Println("App1User....GetProductUserByUsername()")
+	user = App1User{Username: username}
 	o := orm.NewOrm()
 	o.Read(&user, "Username")
 	return user
 }
 
-func GetProductUserById(id int64) (user ProductUser) {
-	fmt.Println("ProductUser....GetProductUserById()")
-	user = ProductUser{Id: id}
+func GetProductUserById(id int64) (user App1User) {
+	fmt.Println("App1User....GetProductUserById()")
+	user = App1User{Id: id}
 	o := orm.NewOrm()
 	o.Read(&user, "Id")
 	return user
@@ -160,13 +160,13 @@ func GetProductUserById(id int64) (user ProductUser) {
 //-----------------------------------------------
 func GetCompanyList() (companys []orm.Params, count int64) {
 	o := orm.NewOrm()
-	company := new(ProductCompany)
+	company := new(App1Company)
 	count, _ = o.QueryTable(company).Values(&companys)
 	return companys, count
 }
 func GetCompanyIdByUserId(userid int64) (companyid int64) {
 	o := orm.NewOrm()
-	var table ProductUser
+	var table App1User
 	o.QueryTable(table).Filter("Id", userid).One(&table)
 	companyid=table.CompanyId
 	fmt.Println("GetCompanyIdById....companyid=",companyid)
@@ -174,9 +174,9 @@ func GetCompanyIdByUserId(userid int64) (companyid int64) {
 }
 //更新用户
 func UserUpdateCompany(userid int64,companyid int64) (int64, error) {
-	fmt.Println("ProductUser....UpdateProductUser()")
+	fmt.Println("App1User....UpdateProductUser()")
 	o := orm.NewOrm()
-	var table ProductUser
+	var table App1User
 	user := make(orm.Params)
 	user["CompanyId"] = companyid
 	num, err := o.QueryTable(table).Filter("Id", userid).Update(user)

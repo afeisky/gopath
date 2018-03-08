@@ -14,12 +14,24 @@ import (
 
 //check access and register user's nodes
 func AccessRegister() {
+	fmt.Println("AccessRegister 1")
 	var Check = func(ctx *context.Context) {
+		fmt.Println("AccessRegister Check(context)")
+		//BEGIN-wuchaofei add for data interface
+   	    _, ok := ctx.Input.Session("uid").(int)
+		if !ok && ctx.Request.RequestURI == "/app1/data" {
+			fmt.Println("AccessRegister --> data!")
+			return;//不用认证权限
+		}
+		//END---wuchaofei add for data interface
+
 		user_auth_type, _ := strconv.Atoi(beego.AppConfig.String("user_auth_type"))
 		rbac_auth_gateway := beego.AppConfig.String("rbac_auth_gateway")
 		var accesslist map[string]bool
 		if user_auth_type > 0 {
 			params := strings.Split(strings.ToLower(strings.Split(ctx.Request.RequestURI, "?")[0]), "/")
+			fmt.Println("AccessRegister ctx.Request.RequestURI:",ctx.Request.RequestURI)
+			fmt.Println("AccessRegister params:",params)
 			if CheckAccess(params) {
 				uinfo := ctx.Input.Session("userinfo")
 				if uinfo == nil {
@@ -55,6 +67,7 @@ func AccessRegister() {
 
 //Determine whether need to verify
 func CheckAccess(params []string) bool {
+	fmt.Println("CheckAccess 1")
 	if len(params) < 3 {
 		return false
 	}
@@ -68,6 +81,7 @@ func CheckAccess(params []string) bool {
 
 //To test whether permissions
 func AccessDecision(params []string, accesslist map[string]bool) bool {
+	fmt.Println("AccessDecision 11")
 	if CheckAccess(params) {
 		s := fmt.Sprintf("%s/%s/%s", params[1], params[2], params[3])
 		if len(accesslist) < 1 {
@@ -91,6 +105,7 @@ type AccessNode struct {
 
 //Access permissions list
 func GetAccessList(uid int64) (map[string]bool, error) {
+	fmt.Println("GetAccessList 11")
 	list, err := m.AccessList(uid)
 	if err != nil {
 		return nil, err
@@ -148,6 +163,7 @@ func GetAccessList(uid int64) (map[string]bool, error) {
 
 //check login
 func CheckLogin(username string, password string) (user m.User, err error) {
+	fmt.Println("CheckLogin 11")
 	user = m.GetUserByUsername(username)
 	if user.Id == 0 {
 		return user, errors.New("用户不存在")

@@ -168,6 +168,7 @@ func (this *RoleController) RoleToUserList() {
 }
 
 func (this *RoleController) AddRoleToUser() {
+	fmt.Println("RoleController --AddRoleToUser()")
 	roleid, _ := this.GetInt64("Id")
 	ids := this.GetString("ids")
 	userids := strings.Split(ids, ",")
