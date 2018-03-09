@@ -3,8 +3,7 @@ Beego使用方法:   2018-01-01
 
 ----------------------------------------------
 Beego环境搭建和bee工具安装使用
-1.
-创建D:\rd\beego目录，并建3个空的子目录 bin,pkg,src
+1. 创建D:\rd\beego目录，并建3个空的子目录 bin,pkg,src
 在环境变量中设置系统变量 GOROOT=E:\IDEA\go1.9.2.windows-amd64\go   #go的压缩包解压后
 在环境变量中设置系统变量 GOPATH=D:\rd\beego
 在环境变量中设置系统变量 PATH=E:\IDEA\TDM_GCC_64\bin;C:\Program Files\Git\cmd;D:\rd\mysql-5.7.19;%GOROOT%\bin;%GOPATH%\bin;%GOPATH%;
@@ -28,5 +27,13 @@ beego admin请看admin目录下的Readme.md文件操作
 
 ----------------------------------
 有两个例子:
-   \src\demo_beego\admin_copy  #这是从仿src/github.com/beego/admin的例子(copy from github.com/beego/admin)
-   \src\demo_beego\hello_admin  #这是从github.com/beego/admin的例子
+1. \src\demo_beego\admin_copy  #这是从仿src/github.com/beego/admin的例子(copy from github.com/beego/admin)
+2. \src\demo_beego\hello_admin  #这是从github.com/beego/admin的例子
+
+---------------------------------
+ beego仿照Digango ORM和SQLAlchemy实现beego ORM，当前支持三个驱动：
+1. MySQL：github.com/go-sql-driver/mysql #在GOPATH目录下，go get github.com/go-sql-driver/mysql
+2. PostgreSQL：github.com/lib/pq
+3. Sqlite3：github.com/mattn/go-sqlite3 #在GOPATH目录下，go get github.com/mattn/go-sqlite3
+
+------------------------------------
