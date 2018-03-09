@@ -10,7 +10,7 @@ Beego环境搭建和bee工具安装使用
 在环境变量中设置系统变量 PATH=E:\IDEA\TDM_GCC_64\bin;C:\Program Files\Git\cmd;D:\rd\mysql-5.7.19;%GOROOT%\bin;%GOPATH%\bin;%GOPATH%;
 在PATH中加上 %GOROOT%\bin;%GOPATH%\bin;%GOPATH%;
 
-2. 下载并安装好git bash工具。
+2. 下载并安装好git bash工具。````
 3. 打开gitcmd，输入 go get github.com/astaxie/beego  。稍等片刻即可在GOPATH的src目录下看到有\github.com\astaxie\beego目录。
 4. 在gitcmd中输入 go get github.com/beego/bee  
 5. 测试bee是否安装成功，可在命令行中输入bee，得到如下结果就成功了。

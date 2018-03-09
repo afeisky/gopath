@@ -7,7 +7,7 @@
 /src/*.exe
 /src/github.com
 !/src/github.com/beego/admin
-.git
+/src/github.com/.git
 
 # ------------------------------------------------------------------
 # git config --global core.autocrlf false  //禁用自动转换   , git config --global core.autocrlf input 
@@ -16,4 +16,5 @@
 # git checkout branchA
 # git push origin master
 # git push origin xxx --tags
+# git rm -rf --cached src/demo_beego/admin_copy  #出现不能git add .的文件，需要清除cached一下,不会删除源文件.再git add .
 #--------------------------------------------------------------------

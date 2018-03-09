@@ -3,25 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="9e3b7c72-c37b-43af-bcad-c4a9ee2377b6" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/pkg/windows_amd64/demo_beego/www1/routers.a" afterPath="$PROJECT_DIR$/pkg/windows_amd64/demo_beego/www1/routers.a" />
-      <change beforePath="$PROJECT_DIR$/src/demo_beego/hello_admin/conf/app.conf" afterPath="$PROJECT_DIR$/src/demo_beego/hello_admin/conf/app.conf" />
-      <change beforePath="$PROJECT_DIR$/src/demo_beego/hello_admin/hello_admin.exe" afterPath="$PROJECT_DIR$/src/demo_beego/hello_admin/hello_admin.exe" />
-      <change beforePath="$PROJECT_DIR$/src/demo_beego/hello_admin/run.bat" afterPath="$PROJECT_DIR$/src/demo_beego/hello_admin/run.bat" />
-      <change beforePath="$PROJECT_DIR$/src/demo_beego/hello_admin/views/easyui/app1/user.tpl" afterPath="$PROJECT_DIR$/src/demo_beego/hello_admin/views/easyui/app1/user.tpl" />
-      <change beforePath="$PROJECT_DIR$/src/demo_beego/hello_admin/views/easyui/app1/userselectcompanylist.tpl" afterPath="$PROJECT_DIR$/src/demo_beego/hello_admin/views/easyui/app1/userselectcompanylist.tpl" />
-      <change beforePath="$PROJECT_DIR$/src/demo_beego/hello_admin/views/index.tpl" afterPath="$PROJECT_DIR$/src/demo_beego/hello_admin/views/index.tpl" />
-      <change beforePath="$PROJECT_DIR$/src/github.com/beego/admin/Router.go" afterPath="$PROJECT_DIR$/src/github.com/beego/admin/Router.go" />
-      <change beforePath="$PROJECT_DIR$/src/github.com/beego/admin/conf/app.conf" afterPath="$PROJECT_DIR$/src/github.com/beego/admin/conf/app.conf" />
-      <change beforePath="$PROJECT_DIR$/src/github.com/beego/admin/src/models/AdminInit.go" afterPath="$PROJECT_DIR$/src/github.com/beego/admin/src/models/AdminInit.go" />
-      <change beforePath="$PROJECT_DIR$/src/github.com/beego/admin/src/models/App1Company.go" afterPath="$PROJECT_DIR$/src/github.com/beego/admin/src/models/App1Company.go" />
-      <change beforePath="$PROJECT_DIR$/src/github.com/beego/admin/src/models/App1User.go" afterPath="$PROJECT_DIR$/src/github.com/beego/admin/src/models/App1User.go" />
-      <change beforePath="$PROJECT_DIR$/src/github.com/beego/admin/src/rbac.go" afterPath="$PROJECT_DIR$/src/github.com/beego/admin/src/rbac.go" />
-      <change beforePath="$PROJECT_DIR$/src/github.com/beego/admin/src/rbac/app1company.go" afterPath="$PROJECT_DIR$/src/github.com/beego/admin/src/rbac/app1company.go" />
-      <change beforePath="$PROJECT_DIR$/src/github.com/beego/admin/src/rbac/app1data.go" afterPath="$PROJECT_DIR$/src/github.com/beego/admin/src/rbac/app1data.go" />
-      <change beforePath="$PROJECT_DIR$/src/github.com/beego/admin/src/rbac/app1user.go" afterPath="$PROJECT_DIR$/src/github.com/beego/admin/src/rbac/app1user.go" />
-      <change beforePath="$PROJECT_DIR$/src/github.com/beego/admin/src/rbac/role.go" afterPath="$PROJECT_DIR$/src/github.com/beego/admin/src/rbac/role.go" />
-      <change beforePath="$PROJECT_DIR$/src/github.com/beego/admin/views/easyui/app1/user.tpl" afterPath="$PROJECT_DIR$/src/github.com/beego/admin/views/easyui/app1/user.tpl" />
-      <change beforePath="$PROJECT_DIR$/src/github.com/beego/admin/views/easyui/app1/userselectcompanylist.tpl" afterPath="$PROJECT_DIR$/src/github.com/beego/admin/views/easyui/app1/userselectcompanylist.tpl" />
+      <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change beforePath="$PROJECT_DIR$/pkg/windows_amd64/demo_beego/www1/routers.a" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,16 +21,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="532">
               <caret line="31" column="52" lean-forward="false" selection-start-line="31" selection-start-column="52" selection-end-line="31" selection-end-column="52" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="rbac.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/github.com/beego/admin/src/rbac.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="32" column="39" lean-forward="false" selection-start-line="32" selection-start-column="25" selection-end-line="32" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -107,12 +80,27 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.go" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/demo_beego/admin_copy/main.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="7" column="10" lean-forward="false" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
-              <folding />
+            <state relative-caret-position="114">
+              <caret line="18" column="31" lean-forward="true" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
+              <folding>
+                <element signature="e#14#171#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="228">
+                <caret line="12" column="22" lean-forward="false" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+                <folding />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -204,7 +192,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/demo_beego/admin_copy/rbac/common.go" />
         <option value="$PROJECT_DIR$/src/demo_beego/admin_copy/rbac/public.go" />
         <option value="$PROJECT_DIR$/src/demo_beego/www1/app1/db_roe.go" />
         <option value="$PROJECT_DIR$/src/demo_beego/www1/app1/product.go" />
@@ -255,6 +242,7 @@
         <option value="$PROJECT_DIR$/src/demo_beego/admin_copy/conf/app.conf" />
         <option value="$PROJECT_DIR$/src/demo_beego/admin_copy/main.go" />
         <option value="$PROJECT_DIR$/src/demo_beego/admin_copy/routers/Router.go" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -265,10 +253,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="144" />
-    <option name="y" value="44" />
+    <option name="x" value="142" />
+    <option name="y" value="197" />
     <option name="width" value="1323" />
-    <option name="height" value="923" />
+    <option name="height" value="755" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -297,17 +285,6 @@
             <path>
               <item name="beego" type="b2602c69:ProjectViewProjectNode" />
               <item name="beego" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="beego" type="b2602c69:ProjectViewProjectNode" />
-              <item name="beego" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="beego" type="b2602c69:ProjectViewProjectNode" />
-              <item name="beego" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="demo_beego" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -516,16 +493,15 @@
       <workItem from="1519784264203" duration="25661000" />
       <workItem from="1519900392537" duration="40283000" />
       <workItem from="1520386536558" duration="19436000" />
-      <workItem from="1520413496442" duration="26148000" />
+      <workItem from="1520413496442" duration="27944000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="111528000" />
+    <option name="totallyTimeSpent" value="113324000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="144" y="44" width="1323" height="923" extended-state="0" />
-    <editor active="true" />
+    <frame x="142" y="197" width="1323" height="755" extended-state="0" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -590,14 +566,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/github.com/beego/admin/src/rbac/common.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="798">
-          <caret line="46" column="8" lean-forward="false" selection-start-line="46" selection-start-column="8" selection-end-line="46" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/demo_beego/hello_admin/main.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1004,9 +972,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/demo_beego/admin_copy/main.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="10" lean-forward="false" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
-          <folding />
+        <state relative-caret-position="114">
+          <caret line="18" column="31" lean-forward="true" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
+          <folding>
+            <element signature="e#14#171#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="228">
+            <caret line="12" column="22" lean-forward="false" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+            <folding />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
