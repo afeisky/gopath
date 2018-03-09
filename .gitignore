@@ -9,10 +9,10 @@
 
 /pkg/
 
-src/github.com/
-!src/github.com/beego/admin
 src/demo_temp
 
+src/github.com/
+!src/github.com/beego/admin
 
 # ------------------------------------------------------------------
 # git config --global core.autocrlf false  //禁用自动转换   , git config --global core.autocrlf input 
