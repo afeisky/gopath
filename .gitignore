@@ -2,12 +2,17 @@
 # 2018-01-01  beego($GOPATH)/
 
 
+
 /bin/
+*.exe
+!bin/bee.exe
+
 /pkg/
-/src/*.exe
-/src/github.com
-!/src/github.com/beego/admin
-/src/github.com/.git
+
+src/github.com/
+!src/github.com/beego/admin
+src/demo_temp
+
 
 # ------------------------------------------------------------------
 # git config --global core.autocrlf false  //禁用自动转换   , git config --global core.autocrlf input 
@@ -17,4 +22,5 @@
 # git push origin master
 # git push origin xxx --tags
 # git rm -rf --cached src/demo_beego/admin_copy  #出现不能git add .的文件，需要清除cached一下,不会删除源文件.再git add .
+# git rm -rf --cached .  #出现不能git add .的文件，需要清除cached一下,不会删除源文件.再git add .
 #--------------------------------------------------------------------
